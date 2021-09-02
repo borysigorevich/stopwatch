@@ -4,7 +4,6 @@ import './Stopwatch.css'
 const Stopwatch = () => {
     const [time, setTime] = useState({hours: 0, minutes: 0, seconds: 0})
     const [isLaunched, setIsLaunched] = useState(false)
-    const [isAwait, setIsAwait] = useState(false)
     const [interval, setInterv] = useState()
 
     const start_stop = () => {
@@ -21,7 +20,6 @@ const Stopwatch = () => {
     const wait = () => {
         clearInterval(interval)
         setIsLaunched(false)
-        // setIsAwait(true)
     }
 
     let hours = time.hours, minutes = time.minutes, seconds = time.seconds
@@ -36,16 +34,6 @@ const Stopwatch = () => {
             setTime({hours: 0, minutes: 0, seconds: 0})
             setInterv(setInterval(stopwatchLogic, 1000))
         }
-        // else if (isAwait) {
-        //     hours = 0
-        //     minutes = 0
-        //     seconds = 0
-        //     clearInterval(interval)
-        //     setTime({hours: 0, minutes: 0, seconds: 0})
-        //     setInterv(setInterval(stopwatchLogic, 1000))
-        //     setIsAwait(false)
-        //     setIsLaunched(true)
-        // }
     }
 
     const stopwatchLogic = () => {
