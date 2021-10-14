@@ -4,21 +4,23 @@ import {Context} from "../../context/context";
 import {fromEvent, interval} from "rxjs";
 import {incrementHours, incrementMinutes, incrementSeconds, reset, stop} from "../../reducer/actions";
 
-const interval$ = interval(100)
+const interval$ = interval(1000)
 
 const Stopwatch = () => {
     const {stopwatch: {HH, MM, SS}, dispatch} = useContext(Context)
-    //refs
+
+    //*****
     //buttons refs
     const start_stop_btn = useRef()
     const wait_btn = useRef()
     const reset_btn = useRef()
-    //subscription refs
+    //subscription ref
     const intervalSub$ = useRef()
     //isLaunch ref
     const isLaunched = useRef(false)
     //isWait ref
     const isWait = useRef(false)
+    //*****
 
     useEffect(() => {
 
@@ -39,9 +41,9 @@ const Stopwatch = () => {
 
         //reset button
         const reset_subscription$ = fromEvent(reset_btn.current, 'click').subscribe(() => {
-            if(isLaunched.current){
+            if (isLaunched.current) {
                 dispatch(reset())
-            } else if(isWait.current){
+            } else if (isWait.current) {
                 dispatch(reset())
                 isWait.current = false
                 isLaunched.current = true
