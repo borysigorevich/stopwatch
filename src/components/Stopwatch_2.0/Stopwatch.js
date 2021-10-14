@@ -63,6 +63,7 @@ const Stopwatch = () => {
 
         return () => {
             start_stop_subscription$.unsubscribe()
+            reset_subscription$.unsubscribe()
         }
 
     }, [HH, MM, SS, isLaunched.current])
