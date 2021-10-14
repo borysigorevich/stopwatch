@@ -8,8 +8,6 @@ const interval$ = interval(100)
 
 const Stopwatch = () => {
     const {stopwatch: {HH, MM, SS}, dispatch} = useContext(Context)
-    //states
-    // const [isLaunched, setIsLaunched] = useState(false)
     //refs
     //buttons refs
     const start_stop_btn = useRef()
@@ -42,7 +40,6 @@ const Stopwatch = () => {
         //reset button
         const reset_subscription$ = fromEvent(reset_btn.current, 'click').subscribe(() => {
             if(isLaunched.current){
-                console.log('here')
                 dispatch(reset())
             } else if(isWait.current){
                 dispatch(reset())
