@@ -1,0 +1,5 @@
+export const INCREMENT_SECONDS = 'INCREMENT_SECONDS'
+export const INCREMENT_MINUTES = 'INCREMENT_MINUTES'
+export const INCREMENT_HOURS = 'INCREMENT_HOURS'
+export const RESET = 'RESET'
+export const STOP = 'STOP'

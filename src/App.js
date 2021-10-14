@@ -1,11 +1,14 @@
 import './App.css';
-import Stopwatch from "./components/Stopwatch/Stopwatch";
+import Stopwatch from "./components/Stopwatch_2.0/Stopwatch";
+import {ContextProvider} from "./context/context";
 
 function App() {
     return (
-        <div className="App">
-            <Stopwatch/>
-        </div>
+        <ContextProvider>
+            <div className="App">
+                <Stopwatch/>
+            </div>
+        </ContextProvider>
     );
 }
 
