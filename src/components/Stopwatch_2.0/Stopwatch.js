@@ -33,7 +33,7 @@ const Stopwatch = () => {
                     dispatch(incrementSeconds())
                 })
             } else if (isLaunched.current) {
-                intervalSub$.current.unsubscribe()
+                intervalSub$.current?.unsubscribe()
                 isLaunched.current = false
                 dispatch(stop())
             }
@@ -52,7 +52,10 @@ const Stopwatch = () => {
 
         //launch after re-render
         if (isLaunched.current) {
-            intervalSub$.current.unsubscribe()
+
+            if (!intervalSub$.current?.isStopped) {
+                intervalSub$.current?.unsubscribe()
+            }
 
             intervalSub$.current = interval$.subscribe(() => {
                 if (MM > 59) dispatch(incrementHours())
@@ -72,7 +75,7 @@ const Stopwatch = () => {
         if (isLaunched.current) {
             isWait.current = true
             isLaunched.current = false
-            intervalSub$.current.unsubscribe()
+            intervalSub$.current?.unsubscribe()
         }
     }
 
@@ -85,7 +88,7 @@ const Stopwatch = () => {
                     <i className={'ss'}>SS: {SS < 10 ? '0' + SS : SS}</i>
                 </TimeBox>
                 <Button ref={start_stop_btn}>Start/Stop</Button>
-                <Button onDoubleClick={handleDoubleClick} ref={wait_btn}>Wait</Button>
+                <Button onDoubleClick={handleDoubleClick} onClick={handleDoubleClick} ref={wait_btn}>Wait</Button>
                 <Button ref={reset_btn}>Reset</Button>
             </Container>
         </div>
