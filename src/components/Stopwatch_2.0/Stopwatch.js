@@ -88,7 +88,7 @@ const Stopwatch = () => {
                     <i className={'ss'}>SS: {SS < 10 ? '0' + SS : SS}</i>
                 </TimeBox>
                 <Button ref={start_stop_btn}>Start/Stop</Button>
-                <Button onDoubleClick={handleDoubleClick} onClick={handleDoubleClick} ref={wait_btn}>Wait</Button>
+                <Button onDoubleClick={handleDoubleClick} ref={wait_btn}>Wait</Button>
                 <Button ref={reset_btn}>Reset</Button>
             </Container>
         </div>
